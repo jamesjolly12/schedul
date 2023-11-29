@@ -1,0 +1,99 @@
+#!/bin/bash
+
+echo "Enter a password: "
+read password
+
+
+# Check password length
+if [ ${#password} -lt 8 ]; then
+    echo "Password is too short."
+    #exit 1
+fi
+
+if [ ${#password} -gt 14 ]; then
+    echo "Password is too long."
+    #exit 1
+fi
+
+if [[ ! $password =~ [A-Z] ]]; then
+    echo "Password must contain at least one uppercase letter."
+    #exit 1
+fi
+
+if [[ ! $password =~ [a-z] ]]; then
+    echo "Password must contain at least one lowercase letter."
+    #exit 1
+fi
+
+if [[ ! $password =~ [0-9] ]]; then
+    echo "Password must contain at least one number."
+    exit 1
+fi
+
+if [[ ! $password =~ [!@#$%^&*()] ]]; then
+    echo "Password must contain at least one special character"
+    exit 1
+fi
+
+echo "Password is strong."
+
+
+#!/bin/bash
+# 5.PRIME 
+
+read -p "Enter a number: " number
+i=2
+ 
+if [ $number -lt 2 ]
+then
+    echo "$number is not a prime number"
+    exit
+fi
+ 
+while [ $i -lt $number ]
+do
+    if [ `expr $number % $i` -eq 0 ]
+    then
+        echo "$number is not a prime number"
+        exit
+    fi
+    i=`expr $i + 1`
+done
+ 
+echo "$number is a prime number"#!/bin/bash
+# 5.PRIME 
+
+read -p "Enter a number: " number
+i=2
+ 
+if [ $number -lt 2 ]
+then
+    echo "$number is not a prime number"
+    exit
+fi
+ 
+while [ $i -lt $number ]
+do
+    if [ `expr $number % $i` -eq 0 ]
+    then
+        echo "$number is not a prime number"
+        exit
+    fi
+    i=`expr $i + 1`
+done
+ 
+echo "$number is a prime number"
+
+#!/bin/bash
+# 6.REVERSE NUMBER
+
+read -p  "enter number: " n
+num=0
+while [ $n -gt 0 ]
+do
+num=$(expr $num \* 10)
+k=$(expr $n % 10)
+num=$(expr $num + $k)
+n=$(expr $n / 10)
+done
+echo "Reversed number is $num"
